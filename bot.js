@@ -141,6 +141,15 @@ function Bot(token) {
          * Shows the scores for this CTF
          */
         scores: function(msg, args, ctf) {
+
+            if (!ctf) {
+                return api.sendMessage({
+                    chat_id: msg.chat.id,
+                    reply_to_message_id: msg.message_id,
+                    text: "There is no running CTF"
+                }, defaultApiCallback);
+            }
+
             CTFInstance
                 .populate(ctf, {
                     path: 'scores',
