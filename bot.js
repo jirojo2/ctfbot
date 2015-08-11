@@ -172,6 +172,30 @@ function Bot(token) {
                 })
         },
 
+
+        /**
+         * Command: Rules
+         * Shows the rules for this CTF
+         */
+        rules: function(msg, args, ctf) {
+
+            if (!ctf) {
+                return api.sendMessage({
+                    chat_id: msg.chat.id,
+                    reply_to_message_id: msg.message_id,
+                    text: "There is no running CTF"
+                }, defaultApiCallback);
+            }
+
+            return api.sendMessage({
+                chat_id: msg.chat.id,
+                reply_to_message_id: msg.message_id,
+                text: util.format("CTF \"%s\" Rules:\n\n%s",
+                                    ctf.model.name,
+                                    ctf.model.rules)
+            }, defaultApiCallback);
+        },
+
         /**
          * Command: Challenge
          * Params:
