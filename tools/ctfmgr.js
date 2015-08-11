@@ -19,6 +19,17 @@ var argv = yargs
     .alias('h', 'help')
     .argv;
 
+// load config
+var config = null;
+try {
+    config = require(path.join(__dirname, '..', 'config.js'))
+}
+catch (e) {
+    console.error('config.js not found');
+    console.error('copy config.js.dist and to make the appropriate changes before continuing');
+    process.exit(1);
+}
+
 // configure logger
 var verbosity = ['info', 'debug'];
 var logLevel = verbosity[Math.max(argv.v, verbosity.length)];
@@ -201,7 +212,7 @@ var actions = {
 }
 
 // connect to database
-mongoose.connect('mongodb://localhost/ctfbot', function(err) {
+mongoose.connect(config.mongo, function(err) {
 
     if (err) {
         return logger.error(err);
