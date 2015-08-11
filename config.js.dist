@@ -1,0 +1,4 @@
+module.exports = {
+    token: 'TELEGRAM API TOKEN',
+    mongo: 'mongodb://localhost/ctfbot'
+}

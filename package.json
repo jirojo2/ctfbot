@@ -1,0 +1,19 @@
+{
+  "name": "ctfbot",
+  "version": "1.0.0",
+  "description": "CTF Bot for Telegram",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "mongoose": "^4.1.1",
+    "prompt": "^0.2.14",
+    "telegram-bot-api": "^0.3.2",
+    "winston": "^1.0.1",
+    "yargs": "^3.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+  },
+  "author": "José Ignacio Rojo <jirojo2@gmail.com>",
+  "license": "MIT"
+}
